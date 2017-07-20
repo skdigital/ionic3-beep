@@ -10,6 +10,9 @@ import { ProfilePage } from './profile';
   exports: [ProfilePage]
 })
 
+export class ProfilePageModule{}
+
+
 
 
 // Shared Component module file
