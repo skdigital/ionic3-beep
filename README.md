@@ -1,6 +1,6 @@
 # MVP full working prototype end of course MVP Chat Applicatoin
 
-## Fully Functiononing firebase CRUD application Ionic 3 and Angularfire2 with Authentication
+## Fully functiononing firebase CRUD application Ionic 3 and Angularfire2 with authentication
 
 This project was built by following Paul Halliday's online course Learn Ionic3 from Scratch.
 
