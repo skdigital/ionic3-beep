@@ -1,3 +1,4 @@
+import { RegisterPage } from './../register/register';
 import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage, IonicApp } from 'ionic-angular';
 
@@ -9,11 +10,11 @@ import { NavController, NavParams, IonicPage, IonicApp } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  navigateToPage(pageName: string) {
+    this.navCtrl.push(pageName);
   }
 
 }

@@ -1,3 +1,14 @@
-page-login {
+.logo {
+    margin: 0 auto;
+    display: block;
+    max-width: 50%;
+}
 
+ion-card ion-row {
+    padding: 10px;
+    float: right;
+
+    div button:nth-of-type(1) {
+        margin-right: 10px;
+    }
 }
