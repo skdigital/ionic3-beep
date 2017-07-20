@@ -1,26 +1,16 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# MVP full working prototype end of course MVP Chat Applicatoin
 
-## How to use this template
+## Fully Functiononing firebase CRUD application Ionic 3 and Angularfire2 with Authentication
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+This project was built by following Paul Halliday's online course Learn Ionic3 from Scratch.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
 
-### With the Ionic CLI:
+### How to run the project with the Ionic CLI:
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Download the zip file or fork the project and pull to a local directory, run 'npm install' from within the local directory and then run the command ionic lab or ionic serve. This will start a local development server.
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+If you open a browser and navigate to localhost:8100/ionic-lab you should find the app running.
 
-Then, to run it, cd into `myBlank` and run:
+Thanks for viewing the app and this readme.
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+(this app was built with Ionic3 and Angularfire2)
