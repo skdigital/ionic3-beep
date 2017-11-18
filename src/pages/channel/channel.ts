@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 
-@IonicPage()
+@IonicPage(
+  {
+    name: 'ChannelsPage'
+  }
+)
+
 @Component({
   selector: 'page-channel',
   templateUrl: 'channel.html',
 })
-export class ChannelPage {
+export class ChannelsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

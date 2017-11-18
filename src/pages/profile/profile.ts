@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 
-@IonicPage()
+@IonicPage(
+  {
+    name: 'ProfilePage'
+  }
+)
+
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
