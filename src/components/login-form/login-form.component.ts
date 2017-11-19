@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import {NavController, ToastController} from "ionic-angular";
+import { Component, EventEmitter, Output } from '@angular/core';
+import {NavController} from "ionic-angular";
 import {AngularFireAuth} from "angularfire2/auth";
 
 import {Account} from "../../models/account/account.interface";
+import {LoginResponse} from "../../models/login/login-response.interface";
 
 /**
  * Generated class for the LoginFormComponent component.
@@ -16,28 +17,39 @@ import {Account} from "../../models/account/account.interface";
 })
 export class LoginFormComponent {
 
+  @Output() loginStatus: EventEmitter<LoginResponse>;
+
   account = {} as Account;
 
-  constructor(private toast: ToastController, private afAuth: AngularFireAuth, private navCtrl: NavController) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private navCtrl: NavController)
+  {
+    this.loginStatus = new EventEmitter<LoginResponse>();
   }
 
-  // Firebase login method
+  // Firebase login functions
   async login(){
     try {
-      const result = await this.afAuth.auth.signInWithEmailAndPassword(this.account.email, this.account.password);
-      console.log(result);
-      this.toast.create({
-        message: "Login successful!",
-        duration: 3000
-      }).present()
+      const result: LoginResponse = {
+        result: await this.afAuth.auth.signInWithEmailAndPassword(this.account.email, this.account.password)
+      };
+      //loginStatus eventEmitter Output to LoginPage
+      this.loginStatus.emit(result);
     }
     catch(e){
-      console.error(e);
+      const error: LoginResponse = {
+        error: e
+      };
+      this.loginStatus.emit(error);
     }
   }
 
-  navigateToPage(pageName: string) {
-    pageName === 'TabsPage' ? this.navCtrl.setRoot(pageName) : this.navCtrl.push(pageName);
+  navigateToRegisterPage() {
+    this.navCtrl.push('RegisterPage');
   }
+  // navigateToPage(pageName: string) {
+  //   pageName === 'TabsPage' ? this.navCtrl.setRoot(pageName) : this.navCtrl.push(pageName);
+  // }
 
 }

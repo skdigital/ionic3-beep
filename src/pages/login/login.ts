@@ -1,6 +1,6 @@
-import { RegisterPage } from './../register/register';
-import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage, IonicApp } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams, IonicPage, IonicApp, ToastController} from 'ionic-angular';
+import {LoginResponse} from "../../models/login/login-response.interface";
 
 @IonicPage()
 
@@ -10,7 +10,23 @@ import { NavController, NavParams, IonicPage, IonicApp } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private toast: ToastController, private navCtrl: NavController, private navParams: NavParams) {
   }
 
+  login(event: LoginResponse) {
+    console.log(event); //check event object
+    if(!event.error){
+      this.navCtrl.setRoot('ProfilePage');
+      this.toast.create({
+        message: `Welcome to OPSAP, ${event.result.email}`,
+        duration: 3000
+      }).present()
+    }
+    else {
+      this.toast.create({
+        message: event.error.message,
+        duration: 3000
+      }).present()
+    }
+  }
 }
