@@ -3,17 +3,17 @@
   <ion-card-content>
     <ion-item>
       <ion-label floating>Email Address</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="account.email" type="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input [(ngModel)]="account.password" type="password"></ion-input>
     </ion-item>
   </ion-card-content>
   <ion-row class="login_form__buttons">
     <div>
       <button color="secondary" ion-button (click)="navigateToPage('RegisterPage')">Register</button>
-      <button color="secondary" ion-button (click)="navigateToPage('TabsPage')">Login</button>
+      <button color="secondary" ion-button (click)="login()">Login</button>
     </div>
   </ion-row>
 </ion-card>
