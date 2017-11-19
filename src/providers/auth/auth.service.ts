@@ -4,7 +4,6 @@ import {LoginResponse} from "../../models/login/login-response.interface";
 import {AngularFireAuth} from "angularfire2/auth";
 
 
-
 @Injectable()
 export class AuthService {
 
