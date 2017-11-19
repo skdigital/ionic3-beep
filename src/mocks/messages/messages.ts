@@ -1,4 +1,4 @@
-import {Message} from "../../models/messages/message";
+import {Message} from "../../models/messages/message.interface";
 import {USER_LIST} from "../users/users";
 
 const userList = USER_LIST;
