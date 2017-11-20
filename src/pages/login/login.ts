@@ -16,7 +16,7 @@ export class LoginPage {
   login(event: LoginResponse) {
     console.log(event); //check event object
     if(!event.error){
-      this.navCtrl.setRoot('ProfilePage');
+      this.navCtrl.setRoot('EditProfilePage');
       this.toast.create({
         message: `Welcome to OPSAP, ${event.result.email}`,
         duration: 3000
