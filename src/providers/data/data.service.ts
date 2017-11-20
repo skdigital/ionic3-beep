@@ -1,6 +1,6 @@
 import { IonicErrorHandler } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { User } from 'firebase/app';
 import { Profile } from '../../models/profile/profile.interface';
 
@@ -10,7 +10,7 @@ export class DataService{
   user = {} as User;
   profile = {} as Profile;
 
-  profileObject: FirebaseObjectObservable<Profile>
+  profileObject: AngularFireObject<Profile>
 
   constructor(private database: AngularFireDatabase) {
 
@@ -21,7 +21,7 @@ export class DataService{
 
     try {
        await this.profileObject.set(profile);
-       return console.log(true);
+       return true;
     }
     catch (e) {
       console.error(e);
