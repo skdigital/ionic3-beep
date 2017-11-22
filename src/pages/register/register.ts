@@ -9,12 +9,9 @@ import {LoginResponse} from "../../models/login/login-response.interface";
 })
 export class RegisterPage {
 
-  constructor(private toast: ToastController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private toast: ToastController, public navCtrl: NavController, public navParams: NavParams){
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
-  }
 
   register(event: LoginResponse){
     console.log(event);

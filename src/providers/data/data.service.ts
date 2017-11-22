@@ -1,4 +1,3 @@
-import { IonicErrorHandler } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { User } from 'firebase/app';
@@ -7,17 +6,18 @@ import { Profile } from '../../models/profile/profile.interface';
 @Injectable()
 export class DataService{
 
-  user = {} as User;
-  profile = {} as Profile;
-
-  profileObject: AngularFireObject<Profile>
+  profileObject: AngularFireObject<Profile>;
 
   constructor(private database: AngularFireDatabase) {
+  }
 
+  getProfile(user: User){
+    this.profileObject = this.database.object(`/profiles/${user.uid}`);
+    return this.profileObject;
   }
 
   async saveProfile(user: User, profile: Profile) {
-    this.profileObject = this.database.object(`/profiles/${user.uid}`)
+    this.profileObject = this.database.object(`/profiles/${user.uid}`);
 
     try {
        await this.profileObject.set(profile);
