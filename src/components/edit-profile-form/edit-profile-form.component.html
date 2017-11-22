@@ -1,18 +1,54 @@
 <ion-card>
   <ion-card-content>
     <ion-item>
-      <ion-label floating>First Name</ion-label>>
-        <ion-input  [(ngModel)]="profile.firstName" type="text"></ion-input>
+      <ion-label floating>First Name</ion-label>
+      >
+      <ion-input [(ngModel)]="profile.firstName" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Last Name</ion-label>>
-        <ion-input [(ngModel)]="profile.lastName" type="text"></ion-input>
+      <ion-label floating>Last Name</ion-label>
+      >
+      <ion-input [(ngModel)]="profile.lastName" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Date of Birth</ion-label>
-        <ion-datetime  [(ngModel)]="profile.dateOfBirth" displayFormat="DD/MM/YYYY"></ion-datetime>
+      <ion-datetime [(ngModel)]="profile.dateOfBirth" displayFormat="DD/MM/YYYY"></ion-datetime>
     </ion-item>
   </ion-card-content>
 </ion-card>
+
+<ion-card>
+  <ion-card-content>
+    <ion-list>
+
+      <ion-item>
+        <ion-label>Air Diver</ion-label>
+        <ion-checkbox [(ngModel)]="profile.airDiver"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sat Diver</ion-label>
+        <ion-checkbox [(ngModel)]="profile.satDiver"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Air Superviser</ion-label>
+        <ion-checkbox [(ngModel)]="profile.airSupervisor"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sat Superviser</ion-label>
+        <ion-checkbox [(ngModel)]="profile.satSupervisor"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Inspection Diver</ion-label>
+        <ion-checkbox [(ngModel)]="profile.inspectionDiver"></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
 
 <button ion-button (click)="saveProfile()">Save</button>

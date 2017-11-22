@@ -1,15 +1,53 @@
-<ion-card>
-  <ion-card-content>
-    <ion-item>
-      <ion-label floating>Email Address</ion-label>
-      <ion-input [(ngModel)]="account.email" type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input [(ngModel)]="account.password" type="password"></ion-input>
-    </ion-item>
-  </ion-card-content>
-  <ion-row class="register_form__button">
-    <button color="secondary" ion-button (click)="register()">Register</button>
-  </ion-row>
-</ion-card>
+
+<!--TODO-me refactor and outsource the all form validation regex to app wide provider/service/utility file -->
+
+<form #registerForm="ngForm" novalidate>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Email Address</ion-label>
+        <ion-input
+          [(ngModel)]="account.email"
+          type="email"
+          name="email"
+          #email="ngModel"
+          required
+          pattern="[a-z0-9!#$%&'*+/=?^_`{\}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{\}~-]+)*@(?:[a-z0-9](?:[a-z0-9]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+        </ion-input>
+      </ion-item>
+
+      <div padding *ngIf="email.invalid && email.dirty">
+        <span class="global__input-error">Please enter a valid email address.</span>
+      </div>
+      <div padding *ngIf="email.valid">
+        <ion-icon class="success_checkmark_green" name="checkbox"></ion-icon>
+      </div>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input
+          [(ngModel)]="account.password"
+          type="password"
+          name="password"
+          #password="ngModel"
+          required
+          pattern="(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{6,}$">
+        </ion-input>
+      </ion-item>
+
+      <div padding *ngIf="password.invalid && password.dirty">
+        <span
+          class="global__input-error">Password must be greater than 6 characters and including one capital letter.</span>
+      </div>
+      <div padding *ngIf="password.valid">
+        <ion-icon class="success_checkmark_green" name="checkbox"></ion-icon>
+      </div>
+
+    </ion-card-content>
+    <ion-row class="register_form__button">
+      <button color="secondary" ion-button (click)="register()" [disabled]="registerForm.invalid">Register</button>
+    </ion-row>
+  </ion-card>
+</form>
+
+

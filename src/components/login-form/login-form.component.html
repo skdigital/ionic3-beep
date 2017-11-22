@@ -1,19 +1,50 @@
-<!-- Generated template for the LoginFormComponent component -->
-<ion-card>
-  <ion-card-content>
-    <ion-item>
-      <ion-label floating>Email Address</ion-label>
-      <ion-input [(ngModel)]="account.email" type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input [(ngModel)]="account.password" type="password"></ion-input>
-    </ion-item>
-  </ion-card-content>
-  <ion-row class="login_form__buttons">
-    <div>
-      <button color="secondary" ion-button (click)="navigateToRegisterPage()">Register</button>
-      <button color="secondary" ion-button (click)="login()">Login</button>
-    </div>
-  </ion-row>
-</ion-card>
+<form #loginForm="ngForm" novalidate>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Email Address</ion-label>
+        <ion-input
+          [(ngModel)]="account.email"
+          type="email"
+          name="email"
+          #email="ngModel"
+          required
+          pattern="[a-z0-9!#$%&'*+/=?^_`{\}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{\}~-]+)*@(?:[a-z0-9](?:[a-z0-9]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+        </ion-input>
+      </ion-item>
+
+      <div padding *ngIf="email.invalid && email.dirty">
+        <span class="global__input-error">Email address not valid. </span>
+      </div>
+      <div padding *ngIf="email.valid"><ion-icon class="success_checkmark_green" name="checkbox"></ion-icon></div>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input
+          [(ngModel)]="account.password"
+          type="password"
+          name="password"
+          #password="ngModel"
+          required
+          pattern="(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{6,}$">
+        </ion-input>
+      </ion-item>
+
+      <div padding *ngIf="password.invalid && password.dirty">
+        <span class="global__input-error">Password must be at least 6 characters long and include 1 capital letter.</span>
+      </div>
+      <div padding *ngIf="password.valid"><ion-icon class="success_checkmark_green" name="checkbox"></ion-icon></div>
+
+    </ion-card-content>
+
+    <ion-row class="login_form__buttons">
+      <div>
+        <button color="secondary" ion-button (click)="navigateToRegisterPage()">Register</button>
+        <button color="secondary" ion-button (click)="login()" [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </ion-row>
+  </ion-card>
+</form>
+
+<!--TODO Create green tick mark that shows when form validation is met-->
+<!--<button ion-button class="icon ion-ios-checkmark-circle" color="dark" type="button"></button>-->
