@@ -1,5 +1,7 @@
 # MVP full working prototype end of course MVP Chat Applicatoin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/skdigital/ionic3-beep.svg)](https://greenkeeper.io/)
+
 ## Fully functiononing firebase CRUD application Ionic 3 and Angularfire2 with authentication
 
 This project was built by following Paul Halliday's online course Learn Ionic3 from Scratch.
